@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", serif;;
+}
+
+
+.main{
+    clip-path: polygon(100% 0, 100% 50%, 0 100%, 0 50%);
+    background-color: #044800;
+    height: 81.4vh;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.64);
+}
+
+
+.headerHome button{
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.headerHome button img{
+    width: 70%;
+}
+
+.headerHome{
+    display: flex;
+    justify-content: start;
+    height: 10vh;
+    z-index: 1;
+}
+
+.containerHome{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    position: absolute;
+    top: 150px;
+}
+
+.menuBox img{
+    width: 310px;
+    height: 92px;
+    border-radius: 20px;
+    box-shadow: 10px 9px 5px 0px rgba(0,0,0,0.4);
+    cursor: pointer;
+}
+
+.menuBox{
+    margin-bottom: 4rem;
+    display: inline-block;
+    position: relative;
+}
+
+.imgBox{
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    color: white;
+    font-weight: 800;
+}
+
+.containerHomeTop{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.containerHomeTop img{
+    width: 60%;
+}
+
+.containerBottom{
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.containerBottomBox{
+    margin-left: 1rem;
+}
+
+.containerBottom h3{
+    font-size: 18pt;
+}
+
+.containerBottom p{
+    font-size: 14pt;
+}
+
+.containerBottom button{
+    margin-top: 0.5rem;
+    padding: 10px;
+}
+
+.containerBottom button img{
+    width: 40%;
+}
+
+.bottom{
+    height: 20vh;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    padding: 15px;
+
+}
+
+.bottom img{
+    width: 8%;
+}
+
+.btnEntrar{
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+h6{
+    margin-top: 1rem;
+}
+
+
+
+
+

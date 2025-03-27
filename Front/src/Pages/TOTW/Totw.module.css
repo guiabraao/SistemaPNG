@@ -1,0 +1,154 @@
+.topBar{
+    border-radius: 0px 0px 100px 100px;
+    -moz-border-radius: 0px 0px 100px 100px;
+    -webkit-border-radius: 0px 0px 100px 100px;
+    background: linear-gradient(to left, #369B31, #133511);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.topBar img{
+    width: 40%;
+}
+
+h2{
+    color: #133511;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.topEst{
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    padding: 20px;
+}
+
+.topEst img{
+    width: 8%;
+}
+
+.containerTW img {
+    width: 90%;
+}
+
+.containerTW {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 8rem;
+}
+
+.containerTW img {
+    width: 100%;
+    display: block;
+}
+
+.containeBoxTW {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.atacantes, .meias, .laterais, .zaga, .goleiro, .pontas{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: absolute;
+}
+
+.atacantes {
+    top: 20%;
+}
+
+.pontas{
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    left: 5%;
+    right: 5%;
+    top: 34%;
+}
+
+.pontas .pe{
+    
+    position: absolute;
+    left: 10px;
+}
+
+.pontas .pd{
+    position: absolute;
+    right: 10px;
+}
+
+.meias {
+    top: 48%;
+}
+
+.laterais {
+    top: 60%;
+    left: 5%;
+    right: 5%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.laterais .le{
+    
+    position: absolute;
+    left: -10px;
+}
+
+.laterais .ld{
+    position: absolute;
+    right: -10px;
+}
+
+.zaga {
+    top: 70%;
+}
+
+.goleiro {
+    bottom: 1%;
+}
+
+.cardTW {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    
+}
+
+
+.containeBoxTW td img{
+    width: 120px;
+}
+
+@media (max-width: 700px){
+    .topBar img{
+        width: 30%;
+    }
+
+    .topEst img{
+        width: 12%;
+    }
+}
+
+
+
+
+
+

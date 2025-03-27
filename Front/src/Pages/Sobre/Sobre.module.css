@@ -1,0 +1,48 @@
+.containerSobre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10rem;
+    gap: 40px;
+}
+
+.containerSobre img{
+    width: 80%;
+    border-radius: 22px;
+
+}
+
+.topEst{
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    padding: 20px;
+}
+
+.sobreBox{
+    width: 90%;
+    background-color: #617260;
+    border-radius: 12px;
+    padding: 30px;
+    color: white;
+}
+
+.topEst{
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    padding: 20px;
+}
+
+.topEst img{
+    width: 8%;
+}
+
+@media (max-width: 700px){
+    .topBar img{
+        width: 30%;
+    }
+
+    .topEst img{
+        width: 12%;
+    }
+}

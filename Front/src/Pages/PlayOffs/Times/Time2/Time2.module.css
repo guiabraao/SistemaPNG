@@ -1,0 +1,72 @@
+.topBar{
+    border-radius: 0px 0px 100px 100px;
+    -moz-border-radius: 0px 0px 100px 100px;
+    -webkit-border-radius: 0px 0px 100px 100px;
+    background: linear-gradient(to left, #369B31, #133511);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.topBar img{
+    width: 40%;
+}
+
+h2{
+    color: #133511;
+    margin-bottom: 3rem;
+}
+
+.topEst{
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    padding: 20px;
+}
+.topEst img{
+    width: 8%;
+}
+
+.containerGalo{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+.galoBox table thead tr td{
+    padding: 10px;
+    border: 2px solid;
+    border-color: #133511;
+    color: white;
+}
+
+
+.galoBox table tbody tr td{
+    text-align: left;
+    padding: 10px;
+    border: 2px solid;
+    border-color: #133511;
+    color: white;
+    background-color: #2d502b;
+}
+
+.galoBox table{
+   border-collapse: collapse;
+   border-color: coral;
+    width: 240px;
+    overflow: hidden;
+}
+
+.galoBox thead tr td{
+    background-color: #6f9e6c;
+}
+
+@media (max-width: 700px){
+    .topBar img{
+        width: 30%;
+    }
+
+    .topEst img{
+        width: 12%;
+    }
+}

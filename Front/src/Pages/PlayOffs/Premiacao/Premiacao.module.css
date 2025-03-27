@@ -1,0 +1,65 @@
+.topBar{
+    border-radius: 0px 0px 100px 100px;
+    -moz-border-radius: 0px 0px 100px 100px;
+    -webkit-border-radius: 0px 0px 100px 100px;
+    background: linear-gradient(to left, #369B31, #133511);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.topBar img{
+    width: 40%;
+}
+h2{
+    color: #133511;
+    margin-bottom: 3rem;
+}
+
+.topEst{
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    padding: 20px;
+}
+
+.topEst img{
+    width: 8%;
+}
+
+.containerPremiPlay{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+
+.premiPlayBox table tr td{
+    text-align: left;
+    padding: 10px;
+    border: 2px solid;
+    border-color: #a1aa22;
+    color: black;
+    background-color: #FFD700;
+}
+
+.premiPlayBox table{
+   border-collapse: collapse;
+   border-color: coral;
+    width: 300px;
+    overflow: hidden;
+}
+
+.premiPlayBox thead tr td{
+    background-color: #ebd663;
+}
+
+@media (max-width: 700px){
+    .topBar img{
+        width: 30%;
+    }
+
+    .topEst img{
+        width: 12%;
+    }
+}

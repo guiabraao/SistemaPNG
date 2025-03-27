@@ -1,0 +1,54 @@
+.topBar{
+    border-radius: 0px 0px 100px 100px;
+    -moz-border-radius: 0px 0px 100px 100px;
+    -webkit-border-radius: 0px 0px 100px 100px;
+    background: linear-gradient(to left, #369B31, #133511);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.topBar img{
+    width: 40%;
+}
+
+h2{
+    color: #133511;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.topEst{
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    padding: 20px;
+}
+
+.topEst img{
+    width: 8%;
+}
+
+.containerReg{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10rem;
+}
+
+.boxReg{
+    width: 90%;
+    background-color: #617260;
+    border-radius: 12px;
+    padding: 30px;
+    color: white;
+}
+
+@media (max-width: 700px){
+    .topBar img{
+        width: 30%;
+    }
+
+    .topEst img{
+        width: 12%;
+    }
+}

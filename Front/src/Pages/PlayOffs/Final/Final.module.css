@@ -1,0 +1,77 @@
+.topBar{
+    border-radius: 0px 0px 100px 100px;
+    -moz-border-radius: 0px 0px 100px 100px;
+    -webkit-border-radius: 0px 0px 100px 100px;
+    background: linear-gradient(to left, #369B31, #133511);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.topBar img{
+    width: 40%;
+}
+
+h2{
+    color: #133511;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.topEst{
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    padding: 20px;
+}
+
+.topEst img{
+    width: 8%;
+}
+
+
+.containerFinal{
+    display: flex;
+    justify-content: center;
+    height: 25vh;
+    width: 100%;
+    color: white;
+    margin-bottom: 20rem;
+}
+
+.finalBox{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    height: 50vh;
+    border: 2px solid;
+    background: linear-gradient(to left, #369B31, #133511);
+    padding: 20px;
+    border-radius: 22px;
+}
+
+.finalBox div{
+    display: flex;
+    align-items: center;
+}
+
+div img{
+    width: 25%;
+}
+
+div h1{
+    font-size: 13pt;
+    margin-left: 5rem;
+}
+
+@media (max-width: 700px){
+    .topBar img{
+        width: 30%;
+    }
+
+    .topEst img{
+        width: 12%;
+    }
+}

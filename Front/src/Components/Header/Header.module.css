@@ -1,0 +1,48 @@
+.topBar{
+    border-radius: 0px 0px 100px 100px;
+    -moz-border-radius: 0px 0px 100px 100px;
+    -webkit-border-radius: 0px 0px 100px 100px;
+    background: linear-gradient(to left, #369B31, #133511);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.topBar img{
+    width: 20%;
+}
+
+h2{
+    color: #133511;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.topEst{
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.topBoxH{
+    display: flex;
+    justify-content: start;
+    max-width: 80%;
+}
+
+.topEst img{
+    width: 4%;
+}
+
+@media (max-width: 700px){
+    .topBar img{
+        width: 30%;
+    }
+
+    .topEst img{
+        width: 12%;
+    }
+}

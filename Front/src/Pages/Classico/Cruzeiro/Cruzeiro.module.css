@@ -1,0 +1,74 @@
+.topBar{
+    border-radius: 0px 0px 100px 100px;
+    -moz-border-radius: 0px 0px 100px 100px;
+    -webkit-border-radius: 0px 0px 100px 100px;
+    background: linear-gradient(to left, #369B31, #133511);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.topBar img{
+    width: 40%;
+}
+
+h2{
+    color: #133511;
+    margin-bottom: 3rem;
+}
+
+.topEst{
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    padding: 20px;
+}
+
+.topEst img{
+    width: 8%;
+}
+
+.containerCruz{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+}
+
+.cruzBox table thead tr td{
+    padding: 10px;
+    border: 2px solid;
+    border-color: #0f44b6;
+    background-color: #396cda;
+    color: white;
+}
+
+
+.cruzBox table tbody tr td{
+    text-align: left;
+    padding: 10px;
+    border: 2px solid;
+    border-color: #0f44b6;
+    color: white;
+    background-color: #0a1391;
+}
+
+.cruzBox table{
+   border-collapse: collapse;
+   border-color: coral;
+    width: 240px;
+    overflow: hidden;
+}
+
+.cruzBox thead tr td{
+    background-color: #5c5c5c;
+}
+
+@media (max-width: 700px){
+    .topBar img{
+        width: 30%;
+    }
+
+    .topEst img{
+        width: 12%;
+    }
+}
