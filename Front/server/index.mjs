@@ -6,6 +6,7 @@ import { randomBytes, randomUUID, scryptSync, timingSafeEqual } from 'node:crypt
 import { initStore, snapshot, updateStore } from './store.mjs'
 import { generateBalancedTeams } from '../shared/balance.mjs'
 import { playerPositions } from '../shared/positions.mjs'
+import { MAX_SELECTED_PLAYERS } from '../shared/limits.mjs'
 const here = path.dirname(fileURLToPath(import.meta.url))
 const production = process.env.NODE_ENV === 'production'
 const port = Number(process.env.PORT || 3030)
@@ -74,6 +75,7 @@ function validateMatch(input) {
   if (time && !/^([01]\d|2[0-3]):[0-5]\d$/.test(time)) fail('Horário inválido.')
   if (!Number.isInteger(teamCount) || teamCount < 2 || teamCount > 8) fail('Escolha de 2 a 8 times.')
   if (!Number.isInteger(playersPerTeam) || playersPerTeam < 2 || playersPerTeam > 12) fail('Escolha de 2 a 12 jogadores por time.')
+  if (teamCount * playersPerTeam > MAX_SELECTED_PLAYERS) fail(`A pelada pode ter no máximo ${MAX_SELECTED_PLAYERS} jogadores em campo.`)
   return { name, date, time, teamCount, playersPerTeam }
 }
 function matchById(store,id) { const match = store.matches.find(item=>item.id===id); if (!match) fail('Pelada não encontrada.',404); return match }
@@ -141,6 +143,7 @@ async function api(req,res,url) {
           const match = matchById(store,id)
           if(match.status==='confirmed') fail('A escalação confirmada não pode ser alterada.',409)
           if (!Array.isArray(input.selectedIds) || new Set(input.selectedIds).size !== input.selectedIds.length) fail('Seleção de jogadores inválida.')
+          if (input.selectedIds.length > MAX_SELECTED_PLAYERS) fail(`Selecione no máximo ${MAX_SELECTED_PLAYERS} jogadores.`)
           const players = new Map(store.players.map(player=>[player.id,player]))
           if (input.selectedIds.some(playerId=>!players.get(playerId)?.ativo)) fail('Selecione apenas jogadores ativos.')
           match.selectedIds = input.selectedIds

@@ -52,8 +52,12 @@ test('admin flow protects data, persists players, balances teams and confirms an
     }
     const invalidPosition=await request(`/players/${seeded[0].id}`,'PATCH',{posicao:'Técnico'},cookie)
     assert.equal(invalidPosition.response.status,400)
+    const tooManySlots=await request('/matches','POST',{name:'Pelada grande',date:'2026-10-01',teamCount:3,playersPerTeam:12},cookie)
+    assert.equal(tooManySlots.response.status,400)
     const match=(await request('/matches','POST',{name:'Teste de pelada',date:'2026-10-01',time:'20:00',teamCount:2,playersPerTeam:4},cookie)).body
     assert.ok(match.id)
+    assert.equal((await request(`/matches/${match.id}`,'PATCH',{selectedIds:seeded.slice(0,33).map(player=>player.id)},cookie)).response.status,200)
+    assert.equal((await request(`/matches/${match.id}`,'PATCH',{selectedIds:seeded.slice(0,34).map(player=>player.id)},cookie)).response.status,400)
     const selectedIds=seeded.slice(0,9).map(player=>player.id)
     assert.equal((await request(`/matches/${match.id}`,'PATCH',{selectedIds},cookie)).response.status,200)
     const first=await request(`/matches/${match.id}/draw`,'POST',{reserveMode:'manual',reserveIds:[selectedIds[8]]},cookie)
