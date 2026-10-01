@@ -25,3 +25,11 @@ dist-ssr
 
 # Local visual verification artifacts
 qa/
+
+# Private administrative records
+server/data/
+
+# Credentials stay in the hosting provider's secret settings.
+.env
+.env.*
+.vercel/

@@ -1,0 +1,5 @@
+# Never publish local credentials or deployment state.
+.env
+.env.*
+**/.vercel/
+**/server/data/

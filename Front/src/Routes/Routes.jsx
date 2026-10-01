@@ -22,12 +22,14 @@ import Times from '../Pages/PlayOffs/Times/Times'
 import Time1 from "../Pages/PlayOffs/Times/Time1/Time1"
 import Time2 from "../Pages/PlayOffs/Times/Time2/Time2"
 import Time3 from "../Pages/PlayOffs/Times/Time3/Time3"
+import Admin from '../Pages/Admin/Admin'
 
 
 
 function AppRouter()  {
     return(
         <Routes>
+            <Route path='/admin/*' element={<Admin />} />
 
             <Route path='/' element={ <Home/>} ></Route>
 
