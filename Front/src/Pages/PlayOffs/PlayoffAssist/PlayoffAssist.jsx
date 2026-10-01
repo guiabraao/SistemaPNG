@@ -1,21 +1,16 @@
-import { useState, useEffect } from 'react'
-import styles from './PlayoffAssist.module.css'
+import useRemote from '../../../hooks/useRemote.js'
+import DataStatus from '../../../Components/DataStatus.jsx'
+
+import styles from '../../../styles/Pages.module.css'
 import back from '../../../assets/backbtn.svg'
 import { Link } from 'react-router-dom'
 import Header from '../../../Components/Header/Header'
 
 function PlayoffAssit() {
 
-    const [assist, setAssist] = useState([])
+    const { data: assist, status, retry } = useRemote('https://raw.githubusercontent.com/guiabraao/apiClassificacao/refs/heads/main/apiAssistPlayoffs')
 
-    useEffect(() => {
-        const buscarAssist = async () => {
-            const response = await fetch('https://raw.githubusercontent.com/guiabraao/apiClassificacao/refs/heads/main/apiAssistPlayoffs')
-            const data = await response.json()
-            setAssist(data)
-        }
-        buscarAssist()
-    }, [])
+
 
 
     return (
@@ -23,9 +18,10 @@ function PlayoffAssit() {
             <Header />
 
             <div className={styles.topEst}>
-                <Link to='/playoff'><img src={back} /></Link>
+                <Link to='/playoff'><img src={back} alt="Voltar" /></Link>
             </div>
             <h2>Assistencias Play-Offs</h2>
+<DataStatus status={status} retry={retry} empty={status === 'ready' && !assist.length} />
 
             <div className={styles.containerAssistPlay}>
                 <div className={styles.assistPlayBox}>
@@ -33,12 +29,12 @@ function PlayoffAssit() {
                         <thead>
                             <tr>
                                 <td>Jogador</td>
-                                <td>Gols</td>
+                                <td>Assistências</td>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                assist.sort((a, b) => b.assist - a.assist)
+                                [...assist].sort((a, b) => b.assist - a.assist)
                                     .map((jogador) => (
                                         <tr key={jogador.id}>
                                             <td>{jogador.nome}</td>

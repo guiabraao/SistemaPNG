@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react'
-import styles from './Premiacao.module.css'
+import useRemote from '../../../hooks/useRemote.js'
+import DataStatus from '../../../Components/DataStatus.jsx'
+
+import styles from '../../../styles/Pages.module.css'
 import Header from '../../../Components/Header/Header'
 import back from '../../../assets/backbtn.svg'
 import { Link } from 'react-router-dom'
@@ -7,24 +9,18 @@ import { Link } from 'react-router-dom'
 
 function Premiacao() {
 
-    const [premios, setPremios] = useState([])
+    const { data: premios, status, retry } = useRemote('https://raw.githubusercontent.com/guiabraao/apiClassificacao/refs/heads/main/Premiação')
 
-    useEffect(() => {
-        const buscarPremios = async () => {
-            const response = await fetch('https://raw.githubusercontent.com/guiabraao/apiClassificacao/refs/heads/main/Premiação')
-            const data = await response.json()
-            setPremios(data)
-        }
-        buscarPremios()
-    }, [])
+
 
     return (
         <>
             <Header />
             <div className={styles.topEst}>
-                <Link to='/playoff'><img src={back} /></Link>
+                <Link to='/playoff'><img src={back} alt="Voltar" /></Link>
             </div>
             <h2>Premiação Play-Offs</h2>
+<DataStatus status={status} retry={retry} empty={status === 'ready' && !premios.length} />
 
             <div className={styles.containerPremiPlay}>
                 <div className={styles.premiPlayBox}>
@@ -38,7 +34,7 @@ function Premiacao() {
                         <tbody>
                             {
                                 premios.map((jogador) => (
-                                        <tr key={jogador.noim}>
+                                        <tr key={jogador.nome}>
                                             <td>{jogador.nome}</td>
                                             <td>{jogador.premio}</td>
                                         </tr>

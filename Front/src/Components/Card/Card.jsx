@@ -6,12 +6,12 @@ import Flag from '../../assets/bandeira.jpg'
 
 function Card (){
 
-    
+
 
     return (
         <>
             <div className={styles.containerCard}>
-                <img src={CardTOTW}/>
+                <img src={CardTOTW} alt="Moldura original do card"/>
 
                 <div className={styles.cardBox}>
 
@@ -24,7 +24,7 @@ function Card (){
                                 <p>ATA</p>
                             </div>
                             <div className={styles.cardrightTop}>
-                                <img src={perfil}/>
+                                <img src={perfil} alt="Migalha"/>
                             </div>
                         </div>
 
@@ -33,8 +33,8 @@ function Card (){
                                 <p>Migalha</p>
                             </div>
                             <div className={styles.footerBottom}>
-                                <img src={Logo} />
-                                <img src={Flag} />
+                                <img src={Logo} alt="PNG" />
+                                <img src={Flag} alt="Brasil" />
                             </div>
                         </div>
 

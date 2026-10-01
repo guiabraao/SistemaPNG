@@ -1,0 +1,44 @@
+.topEst { margin:0 0 var(--space-5); }
+.topEst a { display:inline-flex; align-items:center; gap:10px; min-height:44px; color:var(--muted); font-size:12px; font-weight:700; }
+.topEst a::after { content:'Voltar'; }
+.topEst img { width:18px; height:18px; object-fit:contain; }
+.containerMenu,.containerEst { display:grid; grid-template-columns:1fr; gap:16px; margin-bottom:32px; }
+.containerEst h2 { grid-column:1/-1; }
+.menuBox { position:relative; overflow:hidden; border-radius:var(--radius-md); background:var(--deep); min-width:0; }
+.menuBox a { display:block; position:relative; min-height:150px; }
+.menuBox a::after { content:''; position:absolute; inset:0; background:linear-gradient(90deg,#102f26d9,#102f2610); pointer-events:none; }
+.menuBox img { display:block; width:100%; height:170px; object-fit:cover; object-position:center 35%; transition:transform .3s; }
+.imgBox { position:absolute; left:22px; bottom:22px; right:22px; color:white; font-weight:800; font-size:18px; pointer-events:none; z-index:1; }
+.imgBox p::after { content:'↗'; float:right; color:var(--accent); }
+.menuBox:empty { display:none; }
+.containerCruz,.containerGalo,.containerAssist,.containerGolPlay,.containerAssistPlay,.containerPremiPlay,.containerTable { margin-bottom:32px; }
+.cruzBox,.galoBox,.assistBox,.golPlayBox,.assistPlayBox,.premiPlayBox,.tablestyle { background:var(--surface); border-radius:var(--radius-md); overflow:auto; }
+.table { width:100%; }
+.cruzBox table,.galoBox table,.assistBox table,.golPlayBox table,.assistPlayBox table,.premiPlayBox table,.tablestyle table { width:100%; border-collapse:collapse; font-size:var(--body); }
+.cruzBox td,.galoBox td,.assistBox td,.golPlayBox td,.assistPlayBox td,.premiPlayBox td,.tablestyle td,.tablestyle th { padding:18px 16px; border-bottom:1px solid #edf0e8; text-align:left; height:58px; }
+.cruzBox thead,.galoBox thead,.assistBox thead,.golPlayBox thead,.assistPlayBox thead,.premiPlayBox thead,.tablestyle thead { background:#e9efdf; color:var(--green); font-size:11px; text-transform:uppercase; letter-spacing:1px; }
+.assistBox td:last-child,.golPlayBox td:last-child,.assistPlayBox td:last-child { text-align:right; font-weight:800; font-variant-numeric:tabular-nums; }
+.tablestyle td,.tablestyle th { padding:14px 6px; font-size:12px; text-align:center; }
+.tablestyle td:nth-child(3) { text-align:left; font-weight:800; }
+.containerReg,.containerSobre { display:grid; gap:24px; margin-bottom:32px; }
+.boxReg,.sobreBox { background:var(--surface); padding:clamp(20px,4vw,36px); border-radius:var(--radius-md); font-size:var(--body); overflow-wrap:anywhere; }
+.containerSobre > img { width:100%; border-radius:var(--radius-md); }
+.containerFinal { margin-bottom:32px; }
+.finalBox { background:var(--deep); color:white; border-radius:var(--radius-lg); padding:24px; display:grid; gap:24px; }
+.finalBox > div { display:flex; align-items:center; gap:24px; padding:16px 0; }
+.finalBox img { width:70px; height:70px; object-fit:contain; }
+.finalBox h1 { font-family:'Barlow Condensed',sans-serif; font-size:clamp(1.6rem,5vw,3rem); }
+.containerTW { position:relative; width:100%; max-width:540px; margin:0 auto 32px; border-radius:var(--radius-lg); overflow:hidden; background:var(--deep); }
+.containerTW > img { width:100%; display:block; }
+.containeBoxTW { position:absolute; inset:0; }
+.atacantes,.pontas,.meias,.laterais,.zaga,.goleiro { position:absolute; width:100%; display:flex; justify-content:center; }
+.atacantes { top:14%; } .pontas { top:28%; } .meias { top:42%; } .laterais { top:56%; } .zaga { top:70%; } .goleiro { bottom:1%; }
+.containeBoxTW [data-line] { display:flex; width:100%; justify-content:center; gap:4%; }
+.pontas [data-line],.laterais [data-line] { justify-content:space-between; padding:0 6%; }
+.containeBoxTW [data-slot] { width:27%; display:flex; justify-content:center; }
+.cardTW { width:100%; height:auto; max-height:115px; object-fit:contain; }
+.pe,.pd,.le,.ld { min-width:0; }
+@media(hover:hover) { .menuBox:hover img { transform:scale(1.035); } }
+@media(min-width:600px) { .containerMenu,.containerEst { grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; } .menuBox img { height:210px; } .tablestyle td,.tablestyle th { padding:20px 14px; font-size:14px; } }
+@media(min-width:1024px) { .containerMenu { grid-template-columns:repeat(3,minmax(0,1fr)); } .containerSobre { grid-template-columns:1fr 1fr; align-items:start; } }
+@media(max-width:374px) { .imgBox { left:16px; right:16px; font-size:16px; } .tablestyle td,.tablestyle th { padding:12px 4px; font-size:10px; } }

@@ -1,6 +1,5 @@
-import styles from './Regulamento.module.css'
+import styles from '../../styles/Pages.module.css'
 import back from '../../assets/backbtn.svg'
-import Logo from '../../assets/logoPNG.png'
 import Header from '../../Components/Header/Header'
 import { Link } from 'react-router-dom'
 
@@ -8,11 +7,11 @@ function Regulamento(){
     return(
         <>
             <Header/>
-            
+
             <div className={styles.topEst}>
-                <Link to='/menu'><img src={back}/></Link>
+                <Link to='/menu'><img src={back} alt="Voltar" /></Link>
             </div>
-            
+
             <h2>Regulamento</h2>
 
 

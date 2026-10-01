@@ -1,4 +1,3 @@
-import { useState } from "react"
 import styles from './Login.module.css'
 import Logo from '../../assets/logoPNG.png'
 import btn from '../../assets/kickMatch.svg'
@@ -20,8 +19,8 @@ function Login(){
                         <div className={styles.inputBox}>
                             <input type="text" placeholder="Senha" name="senha"/>
                             <span></span>
-                        </div>   
-                        <button><img src={btn}/></button>                     
+                        </div>
+                        <button><img src={btn}/></button>
                     </form>
                 </div>
             </main>

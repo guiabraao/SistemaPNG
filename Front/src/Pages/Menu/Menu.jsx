@@ -1,79 +1,26 @@
-import Logo from '../../assets/logoPNG.png'
+import Header from '../../Components/Header/Header'
+import Icon from '../../Components/Icon'
+import { Link } from 'react-router-dom'
+import styles from './Menu.module.css'
 import Ronaldinho from '../../assets/ronaldinho.jpg'
 import Neymar from '../../assets/neymar.jpg'
 import Palmer from '../../assets/cold.jpg'
-import Galaticos from '../../assets/galaticos.jpg'
-import MSN from '../../assets/ney.jpg'
 import Galo from '../../assets/galoXmaria.jpg'
 import Lionel from '../../assets/lionel.jpg'
-import styles from './Menu.module.css'
 import Goats from '../../assets/goats.jpg'
 import Romario from '../../assets/romario.jpg'
-import React from 'react'
-import { Link } from 'react-router-dom'
-
-function Menu(){
-    return(
-        <>
-            <div className={styles.topBar}>
-                <img src={Logo}/>
-            </div>
-            <div className={styles.header}>
-                <div className={styles.caixaTxt}>
-                    <h2>FALA, JOGADOR!</h2>
-                    <p>Seja Bem-Vindo a Pelada Nova Geração.</p> <br />
-                    <p>Aqui você vai ficar por dentro de tudo que acontece na melhor pelada do Jara!</p>
-                </div>
-                
-            </div>
-
-            
-            <div className={styles.containerMenu}>
-                <div className={styles.menuBox}> 
-                    <Link to='/totw'><img src={Ronaldinho}/></Link>
-                    <div className={styles.imgBox}>
-                        <p>Seleção da semana</p>
-                    </div>
-                </div>
-                <div className={styles.menuBox}>
-                <Link to='/estatisticas'><img src={Romario}/></Link>
-                    <div className={styles.imgBox}>
-                        <p>Estatisticas</p>
-                    </div>
-                </div>
-                <div className={styles.menuBox}>
-                    <Link to='/eventos'><img src={Neymar}/></Link>
-                    <div className={styles.imgBox}>
-                        <p>Eventos</p>
-                    </div>
-                </div>
-                <div className={styles.menuBox}>
-                    <Link to='/playoff'><img src={Lionel}/></Link>
-                    <div className={styles.imgBox}>
-                        <p>Play-offs</p>
-                    </div>
-                </div>
-                <div className={styles.menuBox}>
-                    <Link to='/classico'><img src={Galo}/></Link>
-                    <div className={styles.imgBox}>
-                        <p>Classico</p>
-                    </div>
-                </div>
-                <div className={styles.menuBox}>
-                    <Link to='/regulamento'><img src={Palmer}/></Link>
-                    <div className={styles.imgBox}>
-                        <p>Regulamento</p>
-                    </div>
-                </div>
-                <div className={styles.menuBox}>
-                    <Link to='/sobre'><img src={Goats}/></Link>
-                    <div className={styles.imgBox}>
-                        <p>Sobre Nós</p>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
+const sections = [
+  ['/totw','Seleção da semana','Os craques da rodada',Ronaldinho],
+  ['/estatisticas','Estatísticas','Gols e assistências',Romario],
+  ['/eventos','Eventos','Nossa agenda fora de campo',Neymar],
+  ['/playoff','Play-offs','A disputa pelo título',Lionel],
+  ['/classico','Clássico','Rivalidade dentro de campo',Galo],
+  ['/regulamento','Regulamento','As regras da nossa pelada',Palmer],
+  ['/sobre','Sobre nós','Futebol, amizade e tradição',Goats],
+]
+export default function Menu() {
+  return <><Header /><section className={styles.heading}><span className="eyebrow">O PONTO DE ENCONTRO DA PNG</span><h1>Fala, jogador<span>!</span></h1><p>Tudo da nossa pelada. Dentro e fora de campo.</p></section>
+    <div className="section-heading"><h2>Explore o jogo</h2><span className={styles.caption}>NOSSA COMUNIDADE</span></div>
+    <section className={styles.grid}>{sections.map(([to,title,text,image],i) => <Link to={to} key={to} className={styles.menuBox} data-animate><img src={image} alt="" loading={i > 1 ? 'lazy' : 'eager'} /><div className={styles.info}><span className={styles.number}>0{i+1}</span><h2>{title}</h2><p>{text}</p><Icon name="arrow"/></div></Link>)}</section>
+  </>
 }
-
-export default Menu

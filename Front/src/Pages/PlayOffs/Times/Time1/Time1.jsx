@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react'
-import styles from './Time1.module.css'
+import useRemote from '../../../../hooks/useRemote.js'
+import DataStatus from '../../../../Components/DataStatus.jsx'
+
+import styles from '../../../../styles/Pages.module.css'
 import Header from '../../../../Components/Header/Header'
 import back from '../../../../assets/backbtn.svg'
 import { Link } from 'react-router-dom'
@@ -7,25 +9,19 @@ import { Link } from 'react-router-dom'
 
 function Time1() {
 
-    const [galo, setGalo] = useState([])
+    const { data: galo, status, retry } = useRemote('https://raw.githubusercontent.com/guiabraao/apiClassificacao/refs/heads/main/time1Playoff')
 
-    useEffect(() => {
-        const buscarGalo = async () => {
-            const response = await fetch('https://raw.githubusercontent.com/guiabraao/apiClassificacao/refs/heads/main/time1Playoff')
-            const data = await response.json()
-            setGalo(data)
-        }
-        buscarGalo()
-    }, [])
+
 
     return (
         <>
             <Header />
             <div className={styles.topEst}>
-                <Link to='/playoffTimes'><img src={back} /></Link>
+                <Link to='/playoffTimes'><img src={back} alt="Voltar" /></Link>
             </div>
 
             <h2>Time 1</h2>
+<DataStatus status={status} retry={retry} empty={status === 'ready' && !galo.length} />
 
             <div className={styles.containerGalo}>
                 <div className={styles.galoBox}>

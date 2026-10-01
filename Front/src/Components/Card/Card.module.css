@@ -1,69 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-.containerCard{
-    color: #B79E39;
-    font-weight: 500;
-    font-family: "Lexend", sans-serif;
-}
-
-
-.containerCard{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.containerCard img{
-    width: 20%;
-}
-
-
-.headerBox{
-    display: flex;
-}
-
-.cardLeftTop p{
-    text-align: center;
-    font-size: 7pt;
-    margin-left: 0.7rem;
-    color: #EEE0A5;
-}
-
-
-.cardrightTop img{
-    width: 70%;
-}
-
-.containerCardBox{
-    display: inline-block;
-    position: relative;
-
-}
-
-.cardBox{
-    position: absolute;
-    width: 85px;
-    height: 100px;
-    top: 20px;
-    left: 153px;
-    
-}
-
-.footerBottom img{
-    width: 15%;
-}
-
-.topBottom p{
-    margin-left: 1.5rem;
-    font-size: 7pt;
-}
-
-.footerBottom{
-    display: flex;
-    justify-content: center;
-    margin-top: 0.2rem;
-    gap: 5px;
-}
-
-
-
+.containerCard { position:relative; width:220px; max-width:100%; margin:0 auto; color:#eee0a5; font-weight:700; }
+.containerCard > img { width:100%; display:block; }
+.cardBox { position:absolute; inset:16% 14% 14%; }
+.headerBox { display:flex; align-items:center; }
+.cardLeftTop { width:30%; text-align:center; }
+.cardLeftTop p:first-child { font-family:'Barlow Condensed',sans-serif; font-size:36px; line-height:1; }
+.cardLeftTop p:last-child { font-size:13px; }
+.cardrightTop { width:70%; }
+.cardrightTop img { width:100%; }
+.topBottom p { text-align:center; font-size:18px; margin:6px 0; }
+.footerBottom { display:flex; gap:8px; justify-content:center; }
+.footerBottom img { width:24px; height:24px; object-fit:contain; }
+.containerCardBox,.bottomCard { width:100%; }

@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react'
-import styles from './Cruzeiro.module.css'
+import useRemote from '../../../hooks/useRemote.js'
+import DataStatus from '../../../Components/DataStatus.jsx'
+
+import styles from '../../../styles/Pages.module.css'
 import Header from '../../../Components/Header/Header'
 import back from '../../../assets/backbtn.svg'
 import { Link } from 'react-router-dom'
@@ -7,24 +9,18 @@ import { Link } from 'react-router-dom'
 
 function Cruzeiro() {
 
-    const [cruz, setCruz] = useState([])
+    const { data: cruz, status, retry } = useRemote('https://raw.githubusercontent.com/guiabraao/apiClassificacao/refs/heads/main/apiCruzeiro')
 
-    useEffect(() => {
-        const buscarCruz = async () => {
-            const response = await fetch('https://raw.githubusercontent.com/guiabraao/apiClassificacao/refs/heads/main/apiCruzeiro')
-            const data = await response.json()
-            setCruz(data)
-        }
-        buscarCruz()
-    }, [])
+
 
     return (
         <>
             <Header />
             <div className={styles.topEst}>
-                <Link to='/classico'><img src={back} /></Link>
+                <Link to='/classico'><img src={back} alt="Voltar" /></Link>
             </div>
             <h2>Jogadores Cruzeiro</h2>
+<DataStatus status={status} retry={retry} empty={status === 'ready' && !cruz.length} />
 
             <div className={styles.containerCruz}>
                 <div className={styles.cruzBox}>
