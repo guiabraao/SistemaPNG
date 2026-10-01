@@ -18,3 +18,23 @@ test('invalid quantity and missing ratings are rejected', () => {
   assert.throws(()=>generateBalancedTeams(players.slice(1),4,5))
   assert.throws(()=>generateBalancedTeams([{...players[0],nota:null},...players.slice(1)],4,5))
 })
+test('each position is split as evenly as its player count allows, including rerolls', () => {
+  const positions = ['Goleiro', 'Goleiro', 'Goleiro', 'Goleiro', 'Goleiro', 'Defesa', 'Defesa', 'Defesa', 'Defesa', 'Defesa', 'Defesa', 'Meio', 'Meio', 'Meio', 'Meio', 'Meio', 'Ataque', 'Ataque', 'Ataque', 'Ataque']
+  const positioned = players.map((player,index)=>({...player,posicao:positions[index]}))
+  const first = generateBalancedTeams(positioned,4,5)
+  const second = generateBalancedTeams(positioned,4,5,{avoidSignature:first.signature})
+  assert.notEqual(first.signature,second.signature)
+  for (const draw of [first,second]) {
+    for (const position of new Set(positions)) {
+      const counts = draw.teams.map(team=>team.players.filter(player=>player.posicao===position).length)
+      assert.ok(Math.max(...counts)-Math.min(...counts)<=1,`${position}: ${counts}`)
+    }
+    assert.ok(draw.balanceDifference<=1,`rating difference was ${draw.balanceDifference}`)
+  }
+})
+test('existing players without positions can still be drawn', () => {
+  const mixed = players.map((player,index)=>({...player,posicao:index<5?'Goleiro':''}))
+  const draw = generateBalancedTeams(mixed,4,5)
+  const keepers = draw.teams.map(team=>team.players.filter(player=>player.posicao==='Goleiro').length)
+  assert.ok(Math.max(...keepers)-Math.min(...keepers)<=1)
+})

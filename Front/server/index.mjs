@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import { randomBytes, randomUUID, scryptSync, timingSafeEqual } from 'node:crypto'
 import { initStore, snapshot, updateStore } from './store.mjs'
 import { generateBalancedTeams } from '../shared/balance.mjs'
+import { playerPositions } from '../shared/positions.mjs'
 const here = path.dirname(fileURLToPath(import.meta.url))
 const production = process.env.NODE_ENV === 'production'
 const port = Number(process.env.PORT || 3030)
@@ -58,7 +59,9 @@ function validatePlayer(input,current={}) {
   if (foto && (!/^https:\/\//.test(foto) || foto.length > 500)) fail('Use uma URL HTTPS válida para a foto.')
   const nota = input.nota === '' || input.nota === null ? null : input.nota === undefined ? current.nota ?? null : Number(input.nota)
   if (nota !== null && (!Number.isFinite(nota) || nota < 0 || nota > 10 || Math.round(nota*10) !== nota*10)) fail('A nota deve estar entre 0 e 10, com uma casa decimal.')
-  return { ...current, nome, apelido, foto, nota, ativo: typeof input.ativo === 'boolean' ? input.ativo : current.ativo ?? true }
+  const posicao = input.posicao === undefined ? current.posicao || '' : input.posicao
+  if (typeof posicao !== 'string' || (posicao !== '' && !playerPositions.includes(posicao))) fail('Escolha uma posição válida para o jogador.')
+  return { ...current, nome, apelido, foto, nota, posicao, ativo: typeof input.ativo === 'boolean' ? input.ativo : current.ativo ?? true }
 }
 function validateMatch(input) {
   const name = typeof input.name === 'string' ? input.name.trim() : ''
@@ -74,7 +77,7 @@ function validateMatch(input) {
   return { name, date, time, teamCount, playersPerTeam }
 }
 function matchById(store,id) { const match = store.matches.find(item=>item.id===id); if (!match) fail('Pelada não encontrada.',404); return match }
-function publicPlayer(player) { return { id:player.id, nome:player.nome, apelido:player.apelido, foto:player.foto, nota:player.nota, ativo:player.ativo } }
+function publicPlayer(player) { return { id:player.id, nome:player.nome, apelido:player.apelido, foto:player.foto, nota:player.nota, posicao:player.posicao||'', ativo:player.ativo } }
 async function api(req,res,url) {
   if (url.pathname === '/api/admin/login' && req.method === 'POST') {
     const ip = req.socket.remoteAddress || ''

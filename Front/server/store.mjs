@@ -11,7 +11,7 @@ let writes = Promise.resolve()
 
 async function initialState() {
   const source = JSON.parse(await readFile(path.resolve(here, '../public/data/assistencias-2026.json'), 'utf8'))
-  return { version: 1, players: source.map(item => ({ id: String(item.id), nome: item.nome, apelido: '', foto: '', nota: null, ativo: true })), matches: [] }
+  return { version: 1, players: source.map(item => ({ id: String(item.id), nome: item.nome, apelido: '', foto: '', nota: null, posicao: '', ativo: true })), matches: [] }
 }
 
 function validate(value) {
