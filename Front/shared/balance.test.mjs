@@ -19,7 +19,7 @@ test('invalid quantity and missing ratings are rejected', () => {
   assert.throws(()=>generateBalancedTeams([{...players[0],nota:null},...players.slice(1)],4,5))
 })
 test('each position is split as evenly as its player count allows, including rerolls', () => {
-  const positions = ['Goleiro', 'Goleiro', 'Goleiro', 'Goleiro', 'Goleiro', 'Defesa', 'Defesa', 'Defesa', 'Defesa', 'Defesa', 'Defesa', 'Meio', 'Meio', 'Meio', 'Meio', 'Meio', 'Ataque', 'Ataque', 'Ataque', 'Ataque']
+  const positions = ['Goleiro', 'Goleiro', 'Goleiro', 'Goleiro', 'Goleiro', 'Defesa', 'Defesa', 'Defesa', 'Lateral', 'Lateral', 'Lateral', 'Meio', 'Meio', 'Meio', 'Meio', 'Meio', 'Ataque', 'Ataque', 'Ataque', 'Ataque']
   const positioned = players.map((player,index)=>({...player,posicao:positions[index]}))
   const first = generateBalancedTeams(positioned,4,5)
   const second = generateBalancedTeams(positioned,4,5,{avoidSignature:first.signature})

@@ -44,7 +44,7 @@ test('admin flow protects data, persists players, balances teams and confirms an
     assert.equal(seeded.length,50)
     assert.equal(seeded.every(player=>player.nota===null),true)
     assert.equal(seeded.every(player=>player.posicao===''),true)
-    const positions=['Goleiro','Goleiro','Defesa','Defesa','Meio','Meio','Ataque','Ataque']
+    const positions=['Goleiro','Goleiro','Defesa','Defesa','Lateral','Lateral','Ataque','Ataque']
     for(const [index,player] of seeded.slice(0,8).entries()) {
       const changed=await request(`/players/${player.id}`,'PATCH',{nota:Number(player.id)%10,posicao:positions[index]},cookie)
       assert.equal(changed.response.status,200)
@@ -64,7 +64,7 @@ test('admin flow protects data, persists players, balances teams and confirms an
     assert.equal(first.response.status,201,JSON.stringify(first.body))
     assert.equal(first.body.teams.length,2)
     assert.equal(first.body.teams.every(team=>team.players.length===4),true)
-    for(const position of ['Goleiro','Defesa','Meio','Ataque']) assert.deepEqual(first.body.teams.map(team=>team.players.filter(player=>player.posicao===position).length),[1,1])
+    for(const position of ['Goleiro','Defesa','Lateral','Ataque']) assert.deepEqual(first.body.teams.map(team=>team.players.filter(player=>player.posicao===position).length),[1,1])
     assert.equal(first.body.reserves.length,1)
     const second=await request(`/matches/${match.id}/draw`,'POST',{reserveMode:'manual',reserveIds:[selectedIds[8]]},cookie)
     assert.equal(second.response.status,201,JSON.stringify(second.body))
